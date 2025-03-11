@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;              /* Çok açık gri/mavi arka plan */
+  --foreground: #1e293b;             /* Gövde metin rengi */
+  --primary: #0ea5e9;                /* Tailwind Sky 500 */
+  --primary-foreground: #ffffff;
+  --secondary: #e0f2fe;              /* Tailwind Sky 100 */
+  --secondary-foreground: #0f172a;   /* Daha koyu gövde metni */
+  --accent: #f472b6;                 /* Tailwind Pink 400 */
+  --accent-foreground: #ffffff;
+  --muted: #f1f5f9;                  /* Tailwind Slate 100 */
+  --muted-foreground: #475569;       /* Tailwind Slate 600 */
+  --card: #ffffff;                   /* Kartlar için beyaz zemin */
+  --card-foreground: #1e293b;        /* Kart içi yazıları */
+  --border: #cbd5e1;                 /* Tailwind Slate 300 */
+  --input: #777777;                  /* Form odak alanları */
+  --ring: #0ea5e9;                   /* Fokus halkası */
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1e293b;             /* Koyu gövde arka planı */
+  --foreground: #f8fafc;            /* Koyu temada açık gövde metni */
+  --primary: #0284c7;               /* Tailwind Sky 600 (daha koyu) */
+  --primary-foreground: #ffffff;
+  --secondary: #334155;             /* Daha koyu arka plan varyasyonu */
+  --secondary-foreground: #e0f2fe;
+  --accent: #be185d;                /* Tailwind Pink 700 */
+  --accent-foreground: #ffffff;
+  --muted: #0f172a;                  /* Tailwind Slate 900 */
+  --muted-foreground: #94a3b8;       /* Tailwind Slate 400 */
+  --card: #334155;                   /* Koyu tema kart zemin */
+  --card-foreground: #e2e8f0;       /* Kart içi metin */
+  --border: #475569;                 /* Tailwind Slate 600 */
+  --input: #475569;
+  --ring: #0284c7;                   /* Fokus halkası (koyu tema) */
+  --radius: 0.5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
