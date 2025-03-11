@@ -1,11 +1,14 @@
-import Image from "next/image";
 import Card from "@/components/Card";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-background text-foreground">
+    <div className="items-center justify-items-center min-h-screen p-2 pb-20 sm:p-10 font-[family-name:var(--font-geist-sans)] bg-background text-foreground">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-4xl font-bold">Welcome to My App</h1>
+        <div className="w-full flex flex-row gap-4 items-center justify-between">
+          <h1 className="text-4xl font-bold">Welcome!</h1>
+          <Button>Add Post</Button>
+        </div>  
         <Card
           username="John Doe"
           nickname="@johndoe"
@@ -36,6 +39,7 @@ export default function Home() {
           nickname="@janesmith"
           content="Another example of a post content."
         />
+
       </main>
     </div>
   );
