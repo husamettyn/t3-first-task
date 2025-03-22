@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <style>
+        .nav-buttons {
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .post {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}" class="button">Home</a>
+    </div>
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <div class="post">
+        <h3>{{ post.user.email }}</h3>
+        <p>{{ post.content }}</p>
+        <small>Posted on: {{ post.date_created }}</small>
+    </div>
+    {% empty %}
+    <p>No posts yet.</p>
+    {% endfor %}
+</body>
+</html> 

@@ -13,3 +13,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+def post_list_view(request):
+    posts = Post.objects.all().order_by('-date_created')
+    return render(request, 'posts/post_list.html', {'posts': posts})

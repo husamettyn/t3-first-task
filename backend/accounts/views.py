@@ -3,6 +3,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import CustomUserCreationForm
+from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
@@ -12,7 +13,7 @@ def register(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
             login(request, user)
-            return redirect('home')  # Redirect to a home page or dashboard
+            return redirect('login')  # Change this to redirect to the login page
     else:
         form = CustomUserCreationForm()
     return render(request, 'accounts/register.html', {'form': form})
@@ -22,3 +23,6 @@ from django.contrib.auth.views import LoginView
 class CustomLoginView(LoginView):
     template_name = 'accounts/login.html'  # Ensure you have this template
     # You can customize this class further if needed
+
+def home_view(request):
+    return render(request, 'accounts/home.html')  # Create a home.html template

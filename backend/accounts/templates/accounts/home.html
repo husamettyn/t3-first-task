@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .nav-buttons {
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h1>
+    <div class="nav-buttons">
+        <a href="{% url 'login' %}" class="button">Login</a>
+        <a href="{% url 'register' %}" class="button">Register</a>
+        <a href="{% url 'post_list' %}" class="button">View Posts</a>
+    </div>
+    <!-- Add more content as needed -->
+</body>
+</html> 
